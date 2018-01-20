@@ -58,7 +58,12 @@ public class DnurseModule extends ReactContextBaseJavaModule {
             mTime.setTimeInMillis((Long) arg0.get(DnurseConstant.DATA_DATETIME));
             mDeviceSN = (String) arg0.get(DnurseConstant.DEVICE_SN);
             mAccuracy = (Byte)arg0.get(DnurseConstant.DATA_ACCURACY, (byte)0);
-            Toast.makeText(getReactApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getReactApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         @Override
@@ -67,7 +72,7 @@ public class DnurseModule extends ReactContextBaseJavaModule {
             m_arg0 = arg0;
             m_arg1 = arg1;
             handler.post(usRunnable);
-            Toast.makeText(getReactApplicationContext(), "measuring", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getReactApplicationContext(), "measuring", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -87,9 +92,9 @@ public class DnurseModule extends ReactContextBaseJavaModule {
                     && mDnurseState != DnurseConstant.TEST_PAPER_REMOVED
                     && mDnurseState != DnurseConstant.START_TEST
                     && mDnurseState != DnurseConstant.TEST_FINISH) {
-                Toast.makeText(getReactApplicationContext(), "active", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getReactApplicationContext(), "active", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getReactApplicationContext(), "not active", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getReactApplicationContext(), "not active", Toast.LENGTH_SHORT).show();
             }
 
             switch(m_arg0) {
