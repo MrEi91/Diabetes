@@ -126,14 +126,17 @@ public class DnurseModule extends ReactContextBaseJavaModule {
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
                     String t = format.format(mTime.getTime());
                     if(DnurseConstant.isLowValue(mTestResult)) {
-//                        mPickerPromise.resolve(String.format("%.2f", mTestResult));
+			  mPickerPromise.resolve(String.format("%.2f", mTestResult));
 //                        mInfo.setText(String.format(getString(R.string.test_finished), t, "LOW", mDeviceSN));
                     } else if(DnurseConstant.isHighValue(mTestResult)) {
+			  mPickerPromise.resolve(String.format("%.2f", mTestResult));
 //                        mInfo.setText(String.format(getString(R.string.test_finished), t, "HIGH", mDeviceSN));
                     } else {
                         if(mAccuracy == 2) {
+			      mPickerPromise.resolve(String.format("%.2f", mTestResult));
 //                            mInfo.setText(t + "\n血糖" + String.format("%.2f", mTestResult) + "mmol/L\nSN: " + mDeviceSN);
                         } else {
+			      mPickerPromise.resolve(String.format("%.2f", mTestResult));
 //                            mInfo.setText(t + "\n血糖" + String.format("%.1f", mTestResult) + "mmol/L\nSN: " + mDeviceSN);
                         }
                     }
