@@ -26,7 +26,7 @@ const DnurseModule = NativeModules.DnurseModule
 export default class App extends Component<{}> {
 
   request(){
-    DnurseModule.openRequest('null')
+    DnurseModule.openRequest('null').then(result => console.log('RESULT : ', result))
   }
 
   render() {
